@@ -4,30 +4,43 @@ import {
 
 } from 'react-router-dom'
 
+// library imports
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 // Routes
-import Dashboard, { dashboardLoader } from './pages/Dashboard'
+import Dashboard, { dashboardAction, dashboardLoader } from './pages/Dashboard'
 import Error from './pages/Error'
 
+// layouts
+import Main, { mainLoader } from './layouts/Main'
+
+
+// Actions
+import { logoutAction } from './actions/logout'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard/>,
-    loader: dashboardLoader,
-    errorElement: <Error/>
-  },
+    element: <Main/>,
+    loader: mainLoader,
+    errorElement: <Error/>,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard/>,
+        loader: dashboardLoader,
+        action: dashboardAction,
+        errorElement: <Error/>
+      },
 
-  {
-    path: "/about",
-    element: <h4>hi about page</h4>
-    
+      {
+        path: 'logout',
+        action: logoutAction
+      }
+    ]
   },
-
-  {
-    path: "*",
-    element: <h4>Oops it seems this route is not available</h4>
-    
-  }
+  
 ])
 
 function App() {
@@ -35,6 +48,7 @@ function App() {
   return (  
     <div>
       <RouterProvider router={router} />
+      <ToastContainer/>
     </div>
         
   )
