@@ -21,9 +21,9 @@ const Main = () => {
     const { userName } = useLoaderData()
 
     return ( 
-        <div className="flex flex-col w-full h-screen">
+        <div className="text-xs md:text-sm flex flex-col w-full h-screen">
             <Navbar userName={userName} />
-            <main className="grid grid-cols-1 flex-1">
+            <main className="grid grid-cols-1 flex-1 overflow-y-scroll bg-lime-50">
                 <Outlet />
             </main>
             <div className="p-5 bg-lime-400"></div>

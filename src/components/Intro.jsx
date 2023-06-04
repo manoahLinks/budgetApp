@@ -16,7 +16,7 @@ const Intro = () => {
                 
                 <Form method="post" className="flex flex-col gap-y-2">
                     <div className="flex relative items-center">
-                        <EnvelopeIcon width={20} className="ml-2 absolute" />
+                        <EnvelopeIcon width={20} className="ml-2 text-slate-400 absolute" />
                         <input 
                             type="text" 
                             name="userName" 
@@ -26,10 +26,11 @@ const Intro = () => {
                             className="w-full border text-center" 
                         />
                     </div>
-                   <button type="submit" className="flex m-auto items-center p-2 bg-slate-900 text-white gap-x-2">
-                    <span>Create Account</span>
-                    <UserPlusIcon width={20}/>
-                   </button>
+                    <input type="hidden" name="_action" value={`newUser`} />
+                    <button type="submit" className="flex w-1/2 rounded-md items-center p-2 bg-slate-900 text-white gap-x-2">
+                        <span>Create Account</span>
+                        <UserPlusIcon width={20}/>
+                    </button>
                 </Form>
            </div>
            <img src={Illustration} width={450}  alt="" />
