@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
 
-import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
+import { CurrencyDollarIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
 
 const AddExpenseForm = ({budgets}) => {
 
@@ -22,7 +22,7 @@ const AddExpenseForm = ({budgets}) => {
 
     return ( 
         <div className="flex flex-col p-5 gap-y-2 shadow bg-white rounded-lg">
-            <h4>Add new <span className="text-lime-400">{budgets.length ===1 && `${budgets.map((budg)=> budg.name)}`}</span> expense</h4>
+            <h4>Add new <span className="text-lime-400">{budgets.length === 1 && `${budgets.map((budg)=> budg.name)}`}</span> expense</h4>
             <fetcher.Form
                 method="post"
                 ref={formRef}
@@ -63,7 +63,7 @@ const AddExpenseForm = ({budgets}) => {
                         className="appearance-none leading-tight focus:outline-none focus:bg-white focus:border-lime-400 text-xs border-slate-300"
                     >
                         <option value="">select a budget</option>
-                        { budgets && budgets.map((budg)=>(
+                        { budgets && budgets.sort((a,b)=>{ b.createdAt - a.createdAt}).map((budg)=>(
                             <option key={budg.id} value={budg.id} >{budg.name}</option>
                         )) }
                     </select>
@@ -71,7 +71,7 @@ const AddExpenseForm = ({budgets}) => {
 
                 <input type="hidden" name="_action" value={`createExpense`} />
 
-                <button disabled={isSubmitting} type="submit" className="flex items-center p-2 bg-lime-400 gap-x-2 rounded-lg w-1/2">
+                <button disabled={isSubmitting} type="submit" className="flex items-center p-2 bg-lime-400 gap-x-2 rounded-lg mr-auto">
                     {
                         isSubmitting ? (
                             <span>Creating Budget...</span>
@@ -79,12 +79,12 @@ const AddExpenseForm = ({budgets}) => {
                         : (
                             <>
                                 <span>CreateExpense</span>
-                                <CurrencyDollarIcon width={20}/>
+                                <PlusCircleIcon width={20}/>
                             </>
                         )
                     }
                     
-                </button>
+                </button> 
             </fetcher.Form>
         </div>
      );

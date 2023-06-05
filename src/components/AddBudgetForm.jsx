@@ -54,7 +54,7 @@ const AddBudgetForm = () => {
                     />
                 </div>
                 <input type="hidden" name="_action" value={`createBudget`} />
-                <button disabled={isSubmitting} type="submit" className="flex items-center p-2 bg-lime-400 gap-x-2 rounded-lg w-1/2">
+                <button disabled={isSubmitting} type="submit" className="flex items-center p-2 bg-lime-400 gap-x-2 rounded-lg mr-auto">
                     {
                         isSubmitting ? (
                             <span>Creating Budget...</span>

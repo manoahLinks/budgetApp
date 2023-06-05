@@ -8,13 +8,15 @@ import { createBudget, createExpense, fetchData } from "../../helpers";
 import { toast } from "react-toastify";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
+import BudgetItem from "../components/BudgetItem";
 
 
 // loader
 export function dashboardLoader(){
     const userName = fetchData('userName')
     const budgets = fetchData('budgets')
-    return {userName, budgets}
+    const expenses = fetchData('expenses')
+    return {userName, budgets, expenses}
 }
 
 // action
@@ -68,7 +70,7 @@ export async function dashboardAction ({request}){
 
 const Dashboard = () => {
 
-    const { userName, budgets } = useLoaderData()
+    const { userName, budgets, expenses } = useLoaderData()
 
     return ( 
         <>
@@ -84,6 +86,29 @@ const Dashboard = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 md:w-8/12 md:gap-x-8 p-3 w-full gap-y-4">
                                         <AddBudgetForm />
                                         <AddExpenseForm budgets={budgets}/>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 md:w-8/12 md:gap-x-8 p-3 w-full gap-y-4">
+                                        <div className="flex flex-col p-5 bg-white rounded-md">
+                                            <h4 className="font-sm font-semibold">Existing Budgets</h4>
+                                            <div className="grid grid-cols-1  md:gap-x-2 gap-y-4">
+                                                {
+                                                    budgets.map((budg)=>(
+                                                        <BudgetItem key={budg.id} budget={budg} />
+                                                    ))
+                                                }
+                                            </div>
+                                        </div>
+
+                                        <div className="flex flex-col p-5 bg-white rounded-md">
+                                            <h4 className="font-sm font-semibold">Expenditure</h4>
+                                            <div className="grid grid-cols-1  md:gap-x-2 gap-y-2">
+                                                {
+                                                    expenses.map((expense)=>(
+                                                        <ExpenseItem key={expense.id} expense={expense} />
+                                                    ))
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             ) 

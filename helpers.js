@@ -28,6 +28,33 @@ export const createExpense = ({name, amount, budget}) => {
 }
 
 
+// total spent by budget
+export const calculateSpentByBudget = (budgetId) => {
+    const expenses = fetchData('expenses') ?? []
+    const budgetSpent = expenses.reduce((acc, expense) => {
+        // check if expenseId === budget
+        if(expense.budget !== budgetId) return acc
+
+        // add the current amount to total
+        return acc += expense.amount
+
+    }, 0)
+
+    return budgetSpent;
+}
+
 export const deleteItem = ({key}) => {
     return localStorage.removeItem(key)
 }
+
+// Formatting
+
+
+// format currency
+export const formatCurrency = (amt) => {
+    return amt.toLocaleString(undefined, {
+        style: "currency",
+        currency: "NGN"
+    })
+}
+
