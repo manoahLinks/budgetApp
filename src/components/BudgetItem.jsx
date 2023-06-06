@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { calculateSpentByBudget, formatCurrency } from "../../helpers";
 
 const BudgetItem = ({budget}) => {
@@ -18,9 +19,9 @@ const BudgetItem = ({budget}) => {
                 <small><span className="text-red-500 font-semibold">{formatCurrency(spent)}</span> spent</small>
                 <small><span className="text-green-500 font-semibold">{formatCurrency(amount - spent)}</span> remaining</small>
             </div>
-            <button className="hover:bg-lime-300 flex p-1 border mr-auto rounded-md bg-white text-slate-500">
+            <Link to={`/budget/${id}`} className="hover:bg-lime-300 flex p-1 border mr-auto rounded-md bg-white text-slate-500">
                 <span>View Details</span>
-            </button>
+            </Link>
         </div>
      );
 }

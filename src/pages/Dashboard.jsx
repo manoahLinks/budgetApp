@@ -93,17 +93,17 @@ const Dashboard = () => {
             {userName ? 
             (
                 <div className="flex flex-col">
-                    <h1 className="">Welcome Back, <span className="text-lime-400">{userName}</span></h1>
-                    <div>
+                    <h1 className="font-semibold mt-5 text-center">Hello, <span className="text-lime-400 text-xl">{userName}</span></h1>
+                    <div className="">
                         {
                             budgets && budgets.length > 0 
                             ? (
-                                <div className="grid grid-cols-1 justify-center justify-items-center items-center">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 md:w-8/12 md:gap-x-8 p-3 w-full gap-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 justify-center justify-items-center">
+                                    <div className="grid grid-cols-1 md:gap-y-8 md:p-5 p-3 w-full gap-y-4">
                                         <AddBudgetForm />
                                         <AddExpenseForm budgets={budgets}/>
                                     </div>
-                                    <div className="grid grid-cols-1  md:w-8/12 md:gap-x-8 p-3 w-full gap-y-4">
+                                    <div className="grid grid-cols-1 col-span-2 md:gap-x-8 p-3 w-full gap-y-4">
                                         <div className="flex flex-col p-5 bg-white rounded-md gap-y-4 shadow">
                                             <h4 className="font-sm font-semibold">Existing Budgets</h4>
                                             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4">
@@ -115,8 +115,9 @@ const Dashboard = () => {
                                             </div>
                                         </div>
 
-                                        { 
-                                            expenses && expenses.length > 0 && 
+                                        <div className="grid grid-cols-1">
+                                    { 
+                                        expenses && expenses.length > 0 && 
                                             (
                                                 <div className="flex flex-col p-5 bg-white gap-y-4 rounded-md">
                                                     <h4 className="font-sm font-semibold text-sm">Recent Expenses</h4>
@@ -140,6 +141,8 @@ const Dashboard = () => {
                                             
                                         }
                                     </div>
+                                    </div>
+                                    
                                 </div>
                             ) 
                             : (
