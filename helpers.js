@@ -20,7 +20,8 @@ export const createExpense = ({name, amount, budget}) => {
         id: `Exp-${crypto.randomUUID()}`,
         name: name,
         amount: +amount,
-        budget: budget
+        budget: budget,
+        createdAt: Date.now()
     }
 
     const existingExpenses = fetchData('expenses') ?? [];
@@ -32,7 +33,7 @@ export const createExpense = ({name, amount, budget}) => {
 export const calculateSpentByBudget = (budgetId) => {
     const expenses = fetchData('expenses') ?? []
     const budgetSpent = expenses.reduce((acc, expense) => {
-        // check if expenseId === budget
+        // check if expenseId !== budget
         if(expense.budget !== budgetId) return acc
 
         // add the current amount to total
@@ -57,4 +58,7 @@ export const formatCurrency = (amt) => {
         currency: "NGN"
     })
 }
+
+export const formatDate = (epoch) => new Date(epoch).toLocaleDateString()
+
 

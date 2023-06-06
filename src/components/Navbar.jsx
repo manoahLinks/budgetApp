@@ -6,7 +6,7 @@ import { TrashIcon, HomeModernIcon } from '@heroicons/react/24/solid'
 
 const Navbar = ({userName}) => {
     return ( 
-        <div className="flex md:p-5 p-3 justify-between">
+        <div className="flex md:p-5 p-3 shadow-lg justify-between">
             <NavLink
                 to={`/`}
                 className={`flex items-center `}

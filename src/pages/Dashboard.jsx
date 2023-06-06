@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
+import ExpenseItem from "../components/ExpenseItem";
+import Table from "../components/Table";
 
 
 // loader
@@ -87,10 +89,10 @@ const Dashboard = () => {
                                         <AddBudgetForm />
                                         <AddExpenseForm budgets={budgets}/>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 md:w-8/12 md:gap-x-8 p-3 w-full gap-y-4">
-                                        <div className="flex flex-col p-5 bg-white rounded-md">
+                                    <div className="grid grid-cols-1  md:w-8/12 md:gap-x-8 p-3 w-full gap-y-4">
+                                        <div className="flex flex-col p-5 bg-white rounded-md gap-y-4 shadow">
                                             <h4 className="font-sm font-semibold">Existing Budgets</h4>
-                                            <div className="grid grid-cols-1  md:gap-x-2 gap-y-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4">
                                                 {
                                                     budgets.map((budg)=>(
                                                         <BudgetItem key={budg.id} budget={budg} />
@@ -99,16 +101,22 @@ const Dashboard = () => {
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-col p-5 bg-white rounded-md">
-                                            <h4 className="font-sm font-semibold">Expenditure</h4>
-                                            <div className="grid grid-cols-1  md:gap-x-2 gap-y-2">
-                                                {
-                                                    expenses.map((expense)=>(
-                                                        <ExpenseItem key={expense.id} expense={expense} />
-                                                    ))
-                                                }
-                                            </div>
-                                        </div>
+                                        { 
+                                            expenses && expenses.length > 0 && 
+                                            (
+                                                <div className="flex flex-col p-5 bg-white gap-y-4 rounded-md">
+                                                    <h4 className="font-sm font-semibold">Expenditure</h4>
+                                                    <div className="grid grid-cols-1  md:gap-x-2 gap-y-2">
+                                                    
+                                                        <Table expenses={expenses.sort((a, b)=> {
+                                                            b.createdAt - a.createdAt
+                                                        })} />
+                                                    
+                                                    </div>
+                                                </div>
+                                            )
+                                            
+                                        }
                                     </div>
                                 </div>
                             ) 

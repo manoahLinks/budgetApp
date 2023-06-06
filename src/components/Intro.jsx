@@ -23,11 +23,11 @@ const Intro = () => {
                             id="userName"
                             required
                             placeholder="what is your name ?"
-                            className="w-full border text-center" 
+                            className="w-full border text-center border-slate-300" 
                         />
                     </div>
                     <input type="hidden" name="_action" value={`newUser`} />
-                    <button type="submit" className="flex w-1/2 rounded-md items-center p-2 bg-slate-900 text-white gap-x-2">
+                    <button type="submit" className="flex mr-auto rounded-md items-center p-2 bg-slate-900 text-white gap-x-2">
                         <span>Create Account</span>
                         <UserPlusIcon width={20}/>
                     </button>
