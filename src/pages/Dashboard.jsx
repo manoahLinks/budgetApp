@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 // components
 import Intro from "../components/Intro";
@@ -105,13 +105,21 @@ const Dashboard = () => {
                                             expenses && expenses.length > 0 && 
                                             (
                                                 <div className="flex flex-col p-5 bg-white gap-y-4 rounded-md">
-                                                    <h4 className="font-sm font-semibold">Expenditure</h4>
+                                                    <h4 className="font-sm font-semibold text-sm">Recent Expenses</h4>
                                                     <div className="grid grid-cols-1  md:gap-x-2 gap-y-2">
                                                     
                                                         <Table expenses={expenses.sort((a, b)=> {
                                                             b.createdAt - a.createdAt
-                                                        })} />
-                                                    
+                                                        }).slice(0,8)} />
+
+                                                        {expenses.length  > 3 && (
+                                                            <Link 
+                                                                className=""
+                                                                to={`expenses`}
+                                                            >
+                                                                view all expenses
+                                                            </Link>
+                                                        ) }
                                                     </div>
                                                 </div>
                                             )

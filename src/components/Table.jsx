@@ -5,9 +5,9 @@ const Table = ({expenses}) => {
         <div className="grid grid-cols-1">
             <table className="grid grid-cols-1 border">
                 <thead className="grid grid-cols-1">
-                    <tr className="grid grid-cols-4 px-2 py-1">
+                    <tr className="grid grid-cols-5 px-2 py-1">
                         {
-                            ["Name", "Amount", "Date", "Action"].map((i, index)=>(
+                            ["Name", "Amount", "Date", "Budget","Action"].map((i, index)=>(
                                 <th className="text-left" key={index}>{i}</th>
                             ))
                         }
@@ -19,7 +19,7 @@ const Table = ({expenses}) => {
                         expenses.map((expense)=>(
                             <tr 
                                 key={expense.id}
-                                className="grid grid-cols-4 px-2 py-1 hover:bg-slate-200"
+                                className="grid grid-cols-5 px-2 py-1 hover:bg-slate-200"
                             >
                                 <ExpenseItem expense={expense} />
                                 

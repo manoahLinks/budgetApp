@@ -3,6 +3,12 @@ export const fetchData = (key) => {
     return JSON.parse(localStorage.getItem(key))
 };
 
+// get all items for localstorage
+export const getAllMatchingItems = ({category, key, value}) => {
+    const data = fetchData(category) ?? [];
+    return data.filter((item) => item[key] === value)
+}
+
 export const createBudget = ({name, amount}) =>{
     const newItem = {
         id: crypto.randomUUID(),
