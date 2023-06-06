@@ -34,6 +34,15 @@ export const createExpense = ({name, amount, budget}) => {
     return localStorage.setItem('expenses', JSON.stringify([...existingExpenses, newItem]))
 }
 
+// delete item from local storage
+export const deleteItem = ({key, id}) => {
+    const existingData = fetchData(key)
+    if(id) {
+        const newData = existingData.filter((item) => item.id !== id)
+        return localStorage.setItem(key, JSON.stringify(newData))
+    }
+    return localStorage.removeItem(key)
+}
 
 // total spent by budget
 export const calculateSpentByBudget = (budgetId) => {
@@ -48,10 +57,6 @@ export const calculateSpentByBudget = (budgetId) => {
     }, 0)
 
     return budgetSpent;
-}
-
-export const deleteItem = ({key}) => {
-    return localStorage.removeItem(key)
 }
 
 // Formatting

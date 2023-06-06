@@ -19,6 +19,7 @@ import Main, { mainLoader } from './layouts/Main'
 // Actions
 import { logoutAction } from './actions/logout'
 import ExpensesPage, { expensesLoader } from './pages/ExpensesPage'
+import BudgetPage, { budgetLoader } from './pages/BudgetPage'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
         path: "/expenses",
         element: <ExpensesPage />,
         loader: expensesLoader,
+      },
+
+      {
+        path: "/budget/:id",
+        element: <BudgetPage />,
+        loader: budgetLoader,
       },
 
       {

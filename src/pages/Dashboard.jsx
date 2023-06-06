@@ -4,12 +4,11 @@ import { Link, useLoaderData } from "react-router-dom";
 import Intro from "../components/Intro";
 
 // helper functions
-import { createBudget, createExpense, fetchData } from "../../helpers";
+import { createBudget, createExpense, deleteItem, fetchData } from "../../helpers";
 import { toast } from "react-toastify";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
-import ExpenseItem from "../components/ExpenseItem";
 import Table from "../components/Table";
 
 
@@ -66,6 +65,21 @@ export async function dashboardAction ({request}){
             throw new Error('Error in creating new expense')
         }
     }
+
+    if(_action === 'deleteExpense'){
+        try {
+            //create Expense
+            deleteItem({
+                key: 'expenses',
+                id: values.expenseId
+
+            }) 
+
+            return toast.success('Expense deleted')
+        } catch (error) {
+            throw new Error('Error in deleting expense')
+        }
+    }
     console.log(_action)
 
 }
@@ -112,7 +126,7 @@ const Dashboard = () => {
                                                             b.createdAt - a.createdAt
                                                         }).slice(0,8)} />
 
-                                                        {expenses.length  > 3 && (
+                                                        {expenses.length  > 8 && (
                                                             <Link 
                                                                 className=""
                                                                 to={`expenses`}
