@@ -95,7 +95,7 @@ const Dashboard = () => {
             {userName ? 
             (
                 <div className="flex flex-col">
-                    <h1 className="font-semibold mt-5 text-center">Hello, <span className="text-lime-400 text-xl">{userName}</span></h1>
+                    <h1 className="font-semibold mt-5 text-center">Hi 👋, <span className="text-lime-400 text-xl">{userName}</span></h1>
                     <div className="">
                         {
                             budgets && budgets.length > 0 
