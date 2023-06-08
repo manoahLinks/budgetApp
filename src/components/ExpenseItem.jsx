@@ -17,14 +17,14 @@ const ExpenseItem = ({ expense, showBudget }) => {
     return ( 
         <>
             <td>{name}</td>
-            <td>{formatCurrency(amount)}</td>
-            <td>{formatDate(createdAt)}</td>
-            {showBudget && <td className="rounded-md p-1 mr-auto border bg-lime-300">
+            <td className="text-[10px] md:text-sm">{formatCurrency(amount)}</td>
+            <td className="text-[10px] md:text-sm">{formatDate(createdAt)}</td>
+            {showBudget && <td className="rounded-md text-[10px] md:text-sm mr-auto whitespace-nowrap bg-lime-300">
                 <Link to={`/budget/${budget.id}`}>
                     {budget.name}
                 </Link>
             </td>}
-            <td className="text-slate-400">
+            <td className="text-slate-400 text-end">
                 <fetcher.Form method="post">
                     <input type="hidden" name="_action" value={`deleteExpense`} />
                     <input type="hidden" name="expenseId" value={expense.id} />

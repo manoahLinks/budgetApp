@@ -1,5 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 
+import img from '../assets/Logistics-pana.png'
+
 // components
 import Intro from "../components/Intro";
 
@@ -103,7 +105,7 @@ const Dashboard = () => {
                                         <AddBudgetForm />
                                         <AddExpenseForm budgets={budgets}/>
                                     </div>
-                                    <div className="grid grid-cols-1 col-span-2 md:gap-x-8 p-3 w-full gap-y-4">
+                                    <div className="grid grid-cols-1 md:col-span-2 md:gap-x-8 p-3 w-full gap-y-4">
                                         <div className="flex flex-col p-5 bg-white rounded-md gap-y-4 shadow">
                                             <h4 className="font-sm font-semibold">Existing Budgets</h4>
                                             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4">
@@ -146,10 +148,16 @@ const Dashboard = () => {
                                 </div>
                             ) 
                             : (
-                                <div className="p-2">
-                                    <p>Personal budgeting is the secret to financial freedom</p>
-                                    <p>Create a budget to get started</p>
-                                    <AddBudgetForm />
+                                <div className="p-2 grid md:grid-cols-3 grid-cols-1 gap-x-8">
+                                    <div className="flex flex-col font-light">
+                                        <p>Create a budget to get started</p>
+                                        <AddBudgetForm />
+                                    </div>
+                                    <div className="bg-white p-5 rounded-md shadow">
+                                        <p>Personal budgeting is the secret to financial freedom</p>
+                                        <img src={img} alt="" />
+                                        <h4 className="text-center font-light">Create a budget to display here</h4>
+                                    </div>
                                 </div>
                             )
                         }

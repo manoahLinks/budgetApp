@@ -38,7 +38,7 @@ const BudgetPage = () => {
                 <span>{budget.name}</span>
                 overview
             </h1>
-            <div className="grid grid-cols-1 md: gap-y-4 md:grid-cols-3 gap-x-8">
+            <div className="grid grid-cols-1 md:gap-y-4 md:grid-cols-3 gap-x-8">
                 <AddExpenseForm budgets={budget}/>
                 <BudgetItem budget={budget}/>
                 {

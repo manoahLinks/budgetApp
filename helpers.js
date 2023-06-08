@@ -3,6 +3,11 @@ export const fetchData = (key) => {
     return JSON.parse(localStorage.getItem(key))
 };
 
+// generate randowm color
+const genRandomColor = () => {
+    
+}
+
 // get all items for localstorage
 export const getAllMatchingItems = ({category, key, value}) => {
     const data = fetchData(category) ?? [];
@@ -27,7 +32,8 @@ export const createExpense = ({name, amount, budget}) => {
         name: name,
         amount: +amount,
         budget: budget,
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        color: `rgb(255, 105, 789)`
     }
 
     const existingExpenses = fetchData('expenses') ?? [];
