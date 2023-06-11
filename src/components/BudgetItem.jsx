@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { calculateSpentByBudget, formatCurrency } from "../../helpers";
+import Linechart from "./Linechart";
 
 const BudgetItem = ({budget}) => {
 
@@ -12,6 +13,7 @@ const BudgetItem = ({budget}) => {
                 <h4 className="text-sm font-semibold text-lime-500">{name}</h4>
                 <p><span className="text-blue-600">{formatCurrency(amount)} </span> Budgeted</p>
             </div>
+            {/* <Linechart/> */}
             <progress className="w-full appearance-none bg-white" max={amount} value={spent}>
                 {/* percentage */}
             </progress>

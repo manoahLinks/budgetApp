@@ -79,3 +79,8 @@ export const formatCurrency = (amt) => {
 export const formatDate = (epoch) => new Date(epoch).toLocaleDateString()
 
 
+// chart
+export const  sortedArray = []
+// run a map function and filter expenses based on budgets
+
+

@@ -12,6 +12,9 @@ import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
 import Table from "../components/Table";
+import Linechart from "../components/Linechart";
+import { useEffect } from "react";
+import BarChart from "../components/Barchart";
 
 
 // loader
@@ -90,6 +93,27 @@ const Dashboard = () => {
 
     const { userName, budgets, expenses } = useLoaderData()
 
+    // chart
+    
+
+    const  sortedArray = []
+
+    // run a map function and filter expenses based on budgets
+    budgets && expenses && budgets.map((budget)=> {
+        const a = expenses.filter((expense)=>{
+            return expense.budget === budget.id
+        })
+
+        // reduce sorted expense and budgets
+        const b = a.reduce((acc, nextValue)=>{
+            return acc + nextValue.amount
+        }, 0)
+
+        // pushing each budget and expense sorted to sortedArray
+        sortedArray.push({budgetId: budget.id , name: budget.name , amount: b})
+    })
+    
+
     return ( 
         <>
             {userName ? 
@@ -142,6 +166,10 @@ const Dashboard = () => {
                                             )
                                             
                                         }
+                                    </div>
+                                    <div className="flex shadow-md p-5 bg-white rounded-lg">
+                                        
+                                        {sortedArray.length > 0 ? <BarChart data={sortedArray} /> : <h4>no chartdata yet</h4>}
                                     </div>
                                     </div>
                                     
