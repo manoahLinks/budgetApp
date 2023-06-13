@@ -6,6 +6,7 @@ import { Form } from "react-router-dom";
 
 // assets
 import Illustration from '../assets/Logistics-rafiki.png'
+import Background from '../assets/04-shopping.png'
 
 const Intro = () => {
     return ( 
@@ -33,7 +34,7 @@ const Intro = () => {
                     </button>
                 </Form>
            </div>
-           <img src={Illustration} width={450}  alt="" />
+           <img src={Background} className="w-40 h-40" alt="" />
         </div>
      );
 }

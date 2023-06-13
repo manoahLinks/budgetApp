@@ -20,7 +20,7 @@ const AddBudgetForm = () => {
     }, [isSubmitting])
 
     return ( 
-        <div className="flex flex-col shadow p-5 gap-y-4 rounded-lg bg-white">
+        <div id="main" className="flex flex-col shadow p-5 gap-y-4 rounded-lg">
            <h4 className="font-semibold text-lime-700">Create Budget</h4>
            <fetcher.Form 
                 method="post"

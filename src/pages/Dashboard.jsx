@@ -125,11 +125,11 @@ const Dashboard = () => {
                             budgets && budgets.length > 0 
                             ? (
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 justify-center justify-items-center">
-                                    <div className="grid grid-cols-1 md:gap-y-8 md:p-5 p-3 w-full gap-y-4">
+                                    <div className="flex flex-col md:gap-y-8 md:p-5 p-3 w-full gap-y-4">
                                         <AddBudgetForm />
                                         <AddExpenseForm budgets={budgets}/>
                                     </div>
-                                    <div className="grid grid-cols-1 md:col-span-2 md:gap-x-8 p-3 w-full gap-y-4">
+                                    <div className="flex flex-col md:col-span-2 md:gap-x-8 p-3 w-full gap-y-4">
                                         <div className="flex flex-col p-5 bg-white rounded-md gap-y-4 shadow">
                                             <h4 className="font-sm font-semibold">Existing Budgets</h4>
                                             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4">
@@ -167,7 +167,7 @@ const Dashboard = () => {
                                             
                                         }
                                     </div>
-                                    <div className="flex shadow-md p-5 bg-white rounded-lg">
+                                    <div className="flex shadow-md p-5 rounded-lg">
                                         
                                         {sortedArray.length > 0 ? <BarChart data={sortedArray} /> : <h4>no chartdata yet</h4>}
                                     </div>

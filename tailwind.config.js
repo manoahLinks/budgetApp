@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/assets/texture-scratch-1.png')",
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
