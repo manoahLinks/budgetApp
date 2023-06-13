@@ -10,11 +10,11 @@ const Taskbar = () => {
                     <span>Home</span>
                 </Link>
 
-                <Link className="flex flex-col items-center text-slate-500">
+                <Link to={`/budgets`} className="flex flex-col items-center text-slate-500">
                     <svg className="w-5 h-5 fill-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M11 2.04932V12.9999H21.9506C21.4489 18.0533 17.1853 21.9999 12 21.9999C6.47715 21.9999 2 17.5228 2 11.9999C2 6.81459 5.94668 2.55104 11 2.04932ZM13 2.04932C17.7244 2.51839 21.4816 6.27552 21.9506 10.9999H13V2.04932Z"></path>
                     </svg>
-                    <span>Budget</span>
+                    <span>Budgets</span>
                 </Link>
 
                 <Link to={`/expenses`} className="flex flex-col items-center">

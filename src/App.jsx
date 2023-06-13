@@ -20,6 +20,7 @@ import Main, { mainLoader } from './layouts/Main'
 import { logoutAction } from './actions/logout'
 import ExpensesPage, { expensesLoader } from './pages/ExpensesPage'
 import BudgetPage, { budgetLoader } from './pages/BudgetPage'
+import AllBudgetsPage, { AllBudgetsPageLoader } from './pages/AllBudgetsPage'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
         path: "/expenses",
         element: <ExpensesPage />,
         loader: expensesLoader,
+      },
+
+      {
+        path: "/budgets",
+        element: <AllBudgetsPage/>,
+        loader: AllBudgetsPageLoader,
       },
 
       {
