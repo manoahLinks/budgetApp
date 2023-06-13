@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Taskbar = () => {
     return ( 
             <div className="block md:hidden flex justify-evenly py-4 bg-white fixed bottom-0 w-full">
-                <Link className="flex text-slate-500 flex-col items-center">
+                <Link to={'/'} className="flex text-slate-500 flex-col items-center">
                     <svg className="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" >
                         <path id="Subtract" fill="currentColor" fillRule="evenodd" d="M12 0.654663L23 10.5547V23H1V10.5547L12 0.654663ZM13 23V17H11V23H13Z" clipRule="evenodd" />
                     </svg>

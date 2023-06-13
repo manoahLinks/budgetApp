@@ -27,12 +27,12 @@ const Linechart = ({data}) => {
       useEffect(()=> {
     
         setChartData({
-          labels: data.map(item => item.name ),
+          labels: ['1st', '2nd', '3rd', '4th'] || data.map(item => item.name ),
           datasets: [
             {
               label: "Revenue Generated 2023",
               fill: false,
-              data: data.map(item => item.amount ),
+              data: [5, 15, 25, 6] || data.map(item => item.amount ),
               borderColor: '#7688A7',
               backgroundColor: 'transparent',
               pointBorderColor: 'transparent',
